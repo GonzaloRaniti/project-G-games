@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="./image/favicon.png">
+  <title>G-Games</title>
+</head>
+<body>
+  <header id="inicio" class="header">
+    <div class="menu-container">
+      <a href="#inicio" class="logo">
+        <img src="./image/logo.png" alt="logo" />
+      </a>
+  
+      <input type="checkbox" id="menu" />
+      <label for="menu">
+        <img src="./image/menu.png" alt="menu" />
+      </label>
+  
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#products">Productos</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+      </nav>
+  
+      <div class="cart-container">
+        <a href="#" onclick="toggleCart()">
+          <img src="./image/carrito-de-compras.png" alt="carrito" />
+        </a>
+      </div>
+    </div>
+  
+    <div class="header-content">
+      <h1>G-GAMES</h1>
+      <p>El mejor lugar para comprar tus juegos favoritos.</p>
+    </div>
+  
+    <a href="#products" class="cta-btn">Explorar Productos</a>
+  </header>
+  
+  <!-- CARRITO DE COMPRAS -->
+  <div id="cart-container" class="cart-sidebar">
+    <button class="close-cart" onclick="toggleCart()">✖</button>
+    <h3>Tu Carrito</h3>
+    <div id="cart-items"></div>
+    <p id="cart-total">Total: $0</p>
+    <button onclick="emptyCart()">Vaciar carrito</button>
+  </div>
+
+  <main>
+    <section id="about">
+      <h2>Sobre Nosotros</h2>
+      <p>
+        En G-GAMES somos fanáticos de los videojuegos, igual que vos. Nuestro objetivo es
+        ofrecerte los mejores títulos para PC y consolas, con una atención personalizada y
+        una experiencia de compra rápida y segura. Creemos que jugar no es solo un pasatiempo,
+        es una pasión, y por eso trabajamos todos los días para acercarte lo último del mundo gamer
+        al mejor precio.
+      </p>
+    </section>
+
+    <section id="products">
+      <h2>Productos</h2>
+      <div id="product-list"></div>
+    </section>
+
+    <section id="contact">
+      <h2>Contacto</h2>
+      <form id="contact-form" action="#" method="POST">
+        <div class="form-group">
+          <label for="name">Nombre Completo</label>
+          <input type="text" id="name" name="name" placeholder="Tu nombre" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Tu email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="4" placeholder="Escribe tu mensaje..." required></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit">Enviar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 G-Games. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>
