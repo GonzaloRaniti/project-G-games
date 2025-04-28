@@ -175,3 +175,19 @@ contactForm.addEventListener('submit', function (event) {
 
   contactForm.reset();
 });
+
+
+function mostrarOcultarMenu() {
+    const menu = document.querySelector('#menu');
+
+    if (menu.checked) {
+        console.log('Mostrar Menú');
+        // Aquí puedes agregar la lógica para mostrar el menú
+    } else {
+        console.log('Ocultar Menú');
+        // Y aquí la lógica para ocultarlo
+    }
+}
+
+// Añadimos el evento al checkbox directamente
+document.querySelector('#menu').addEventListener('change', mostrarOcultarMenu);

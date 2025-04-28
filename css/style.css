@@ -466,6 +466,8 @@ footer p {
 }
 
 
+/* MEDIAS QUERIES */
+
 @media (max-width: 768px) {
     .menu-container {
         flex-direction: row;
@@ -501,8 +503,8 @@ footer p {
 
 
     label img {
-        width: 28px;
-        height: 20px;
+        width: 48px;
+        height: 30px;
         display: block;
         cursor: pointer;
     }
@@ -561,5 +563,14 @@ footer p {
 
     #cart-total {
         font-size: 1.2rem;
+    }
+
+
+    
+    label img {
+        width: 30px;
+        height: 15px;
+        display: block;
+        cursor: pointer;
     }
 }
