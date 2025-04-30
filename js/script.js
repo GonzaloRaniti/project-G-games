@@ -60,6 +60,7 @@ function addToCart(productId) {
     }
 
     renderCart();
+    mostrarMensajeAgregado(product.name); 
 }
 
 // Renderizar el carrito
@@ -182,12 +183,26 @@ function mostrarOcultarMenu() {
 
     if (menu.checked) {
         console.log('Mostrar Menú');
-        // Aquí puedes agregar la lógica para mostrar el menú
+        
     } else {
         console.log('Ocultar Menú');
-        // Y aquí la lógica para ocultarlo
+       
     }
 }
 
-// Añadimos el evento al checkbox directamente
 document.querySelector('#menu').addEventListener('change', mostrarOcultarMenu);
+
+
+function mostrarMensajeAgregado(nombreProducto) {
+    const mensaje = document.createElement('div');
+    mensaje.classList.add('mensaje-agregado');
+    mensaje.innerText = `${nombreProducto} agregado al carrito`;
+
+    document.body.appendChild(mensaje);
+
+    setTimeout(() => {
+        mensaje.remove();
+    }, 3000);
+}
+
+
