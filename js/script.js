@@ -135,48 +135,63 @@ function removeFromCart(productId) {
     renderCart();
 }
 
-
-
 function emptyCart() {
     cart = [];
     renderCart();
     toggleCart();
 }
 
-
 function toggleCart() {
     cartContainer.classList.toggle('show');
 }
-
-
-
 
 const contactForm = document.getElementById('contact-form');
 
 
 contactForm.addEventListener('submit', function (event) {
-  event.preventDefault();
+  event.preventDefault(); 
 
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
 
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
+  let errores = [];
 
+  if (!name) {
+    errores.push('El nombre es obligatorio.');
+  }
 
+  if (!email) {
+    errores.push('El email es obligatorio.');
+  } else {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      errores.push('El email no tiene un formato válido.');
+    }
+  }
+
+  if (!message) {
+    errores.push('El mensaje es obligatorio.');
+  }
+
+  if (errores.length > 0) {
+    alert(errores.join('\n')); 
+    return; 
+  }
+
+  
   const formData = {
     name: name,
     email: email,
     message: message,
   };
 
-
   localStorage.setItem('contactFormData', JSON.stringify(formData));
 
-  alert('¡Mensaje enviado!');
+  alert('¡Mensaje enviado! Muchas gracias!');
 
   contactForm.reset();
 });
-
 
 function mostrarOcultarMenu() {
     const menu = document.querySelector('#menu');
@@ -192,7 +207,6 @@ function mostrarOcultarMenu() {
 
 document.querySelector('#menu').addEventListener('change', mostrarOcultarMenu);
 
-
 function mostrarMensajeAgregado(nombreProducto) {
     const mensaje = document.createElement('div');
     mensaje.classList.add('mensaje-agregado');
@@ -204,5 +218,3 @@ function mostrarMensajeAgregado(nombreProducto) {
         mensaje.remove();
     }, 3000);
 }
-
-
