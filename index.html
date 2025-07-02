@@ -1,99 +1,254 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="G-Games - Tu tienda de videojuegos favorita. Encuentra los mejores títulos para PC y consolas con precios increíbles.">
+  <meta name="keywords" content="videojuegos, gaming, tienda, PC, consolas, FIFA, GTA, Call of Duty">
+  <meta name="author" content="G-Games">
+  <meta property="og:title" content="G-Games - Tu Tienda de Videojuegos">
+  <meta property="og:description" content="Encuentra los mejores videojuegos para PC y consolas">
+  <meta property="og:image" content="./image/logo.png">
+  <meta property="og:url" content="">
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="icon" href="./image/favicon.png">
-  <title>G-Games</title>
+  <title>G-Games | Tu Tienda de Videojuegos</title>
 </head>
 <body>
+  <!-- Header Section -->
   <header id="inicio" class="header">
-    <div class="menu-container">
-      <a href="#inicio" class="logo">
-        <img src="./image/logo.png" alt="logo" />
+    <!-- Navigation -->
+    <nav class="menu-container">
+      <a href="#inicio" class="logo" aria-label="G-Games Home">
+        <img src="./image/logo.png" alt="G-Games Logo" />
       </a>
   
-      <input type="checkbox" id="menu" />
-      <label for="menu">
-        <img src="./image/menu.png" alt="menu" />
+      <input type="checkbox" id="menu" aria-label="Toggle menu" />
+      <label for="menu" class="menu-toggle">
+        <img src="./image/menu.png" alt="Menu" />
       </label>
   
-      <nav class="navbar">
+      <div class="navbar">
         <ul class="navbar-list">
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#about">Nosotros</a></li>
-          <li><a href="#products">Productos</a></li>
-          <li><a href="#contact">Contacto</a></li>
+          <li><a href="#inicio" class="nav-link">Inicio</a></li>
+          <li><a href="#about" class="nav-link">Nosotros</a></li>
+          <li><a href="#products" class="nav-link">Productos</a></li>
+          <li><a href="#contact" class="nav-link">Contacto</a></li>
         </ul>
-      </nav>
+      </div>
   
       <div class="cart-container">
-        <a href="#" onclick="toggleCart()">
-          <img src="./image/carrito-de-compras.png" alt="carrito" />
-        </a>
+        <button class="cart-btn" onclick="toggleCart()" aria-label="Abrir carrito de compras">
+          <img src="./image/carrito-de-compras.png" alt="Carrito de compras" />
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+      </div>
+    </nav>
+  
+    <!-- Hero Content -->
+    <div class="header-content">
+      <h1 class="hero-title">G-GAMES</h1>
+      <p class="hero-subtitle">El mejor lugar para comprar tus juegos favoritos con la mejor experiencia de compra online.</p>
+      <div class="hero-features">
+        <span class="feature">🎮 +1000 Juegos</span>
+        <span class="feature">🚚 Envío Gratis</span>
+        <span class="feature">💳 Pago Seguro</span>
       </div>
     </div>
   
-    <div class="header-content">
-      <h1>G-GAMES</h1>
-      <p>El mejor lugar para comprar tus juegos favoritos.</p>
-    </div>
-  
-    <a href="#products" class="cta-btn">Explorar Productos</a>
+    <a href="#products" class="cta-btn" aria-label="Explorar productos">
+      <span>Explorar Productos</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M7 17l9.2-9.2M17 17V7H7"/>
+      </svg>
+    </a>
   </header>
   
-  <!-- CARRITO DE COMPRAS -->
-  <div id="cart-container" class="cart-sidebar">
-    <button class="close-cart" onclick="toggleCart()">✖</button>
-    <h3>Tu Carrito</h3>
-    <div id="cart-items"></div>
-    <p id="cart-total">Total: $0</p>
-    <button onclick="emptyCart()">Vaciar carrito</button>
+  <!-- Shopping Cart Sidebar -->
+  <div id="cart-container" class="cart-sidebar" aria-hidden="true">
+    <div class="cart-header">
+      <h3>Tu Carrito</h3>
+      <button class="close-cart" onclick="toggleCart()" aria-label="Cerrar carrito">✖</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-footer">
+      <p id="cart-total" class="cart-total">Total: $0</p>
+      <div class="cart-actions">
+        <button class="btn-secondary" onclick="emptyCart()">Vaciar carrito</button>
+        <button class="btn-primary" onclick="checkout()">Finalizar compra</button>
+      </div>
+    </div>
   </div>
 
+  <!-- Main Content -->
   <main>
-    <section id="about">
-      <h2>Sobre Nosotros</h2>
-      <p>
-        En G-GAMES somos fanáticos de los videojuegos, igual que vos. Nuestro objetivo es
-        ofrecerte los mejores títulos para PC y consolas, con una atención personalizada y
-        una experiencia de compra rápida y segura. Creemos que jugar no es solo un pasatiempo,
-        es una pasión, y por eso trabajamos todos los días para acercarte lo último del mundo gamer
-        al mejor precio.
-      </p>
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">Sobre Nosotros</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              En <strong>G-GAMES</strong> somos fanáticos de los videojuegos, igual que vos. Nuestro objetivo es
+              ofrecerte los mejores títulos para PC y consolas, con una atención personalizada y
+              una experiencia de compra rápida y segura.
+            </p>
+            <p>
+              Creemos que jugar no es solo un pasatiempo, es una pasión, y por eso trabajamos todos los días 
+              para acercarte lo último del mundo gamer al mejor precio.
+            </p>
+          </div>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-number">1000+</span>
+              <span class="stat-label">Juegos</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">50K+</span>
+              <span class="stat-label">Clientes</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">24/7</span>
+              <span class="stat-label">Soporte</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="products">
-      <h2>Productos</h2>
-      <div id="product-list"></div>
+    <!-- Products Section -->
+    <section id="products" class="section">
+      <div class="container">
+        <h2 class="section-title">Nuestros Productos</h2>
+        <div class="products-filter">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="action">Acción</button>
+          <button class="filter-btn" data-filter="sports">Deportes</button>
+          <button class="filter-btn" data-filter="adventure">Aventura</button>
+        </div>
+        <div id="product-list" class="products-grid"></div>
+      </div>
     </section>
 
-    <section id="contact">
-      <h2>Contacto</h2>
-      <form id="contact-form" action="#" method="POST" novalidate>
-        <div class="form-group">
-          <label for="name">Nombre Completo</label>
-          <input type="text" id="name" name="name" placeholder="Tu nombre" required />
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Contacto</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3>¿Necesitas ayuda?</h3>
+            <p>Nuestro equipo está aquí para ayudarte con cualquier consulta.</p>
+            <div class="contact-details">
+              <div class="contact-item">
+                <span class="contact-icon">📧</span>
+                <span>info@g-games.com</span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">📞</span>
+                <span>+54 11 1234-5678</span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">📍</span>
+                <span>Buenos Aires, Argentina</span>
+              </div>
+            </div>
+          </div>
+          <form id="contact-form" class="contact-form" action="#" method="POST" novalidate>
+            <div class="form-group">
+              <label for="name">Nombre Completo *</label>
+              <input type="text" id="name" name="name" placeholder="Tu nombre completo" required />
+              <span class="error-message" id="name-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+              <span class="error-message" id="email-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="subject">Asunto</label>
+              <input type="text" id="subject" name="subject" placeholder="¿En qué podemos ayudarte?" />
+            </div>
+            <div class="form-group">
+              <label for="message">Mensaje *</label>
+              <textarea id="message" name="message" rows="4" placeholder="Escribe tu mensaje..." required></textarea>
+              <span class="error-message" id="message-error"></span>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn-primary">
+                <span class="btn-text">Enviar Mensaje</span>
+                <span class="btn-loading" style="display: none;">
+                  <svg class="spinner" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </form>
         </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Tu email" required />
-        </div>
-        <div class="form-group">
-          <label for="message">Mensaje</label>
-          <textarea id="message" name="message" rows="4" placeholder="Escribe tu mensaje..." required></textarea>
-        </div>
-        <div class="form-group">
-          <button type="submit">Enviar</button>
-        </div>
-      </form>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 G-Games. Todos los derechos reservados.</p>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>G-Games</h4>
+          <p>Tu tienda de confianza para videojuegos.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="Twitter">🐦</a>
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="YouTube">📺</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Enlaces</h4>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#about">Nosotros</a></li>
+            <li><a href="#products">Productos</a></li>
+            <li><a href="#contact">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Soporte</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Envíos</a></li>
+            <li><a href="#">Devoluciones</a></li>
+            <li><a href="#">Términos y Condiciones</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 G-Games. Todos los derechos reservados.</p>
+      </div>
+    </div>
   </footer>
+
+  <!-- Loading Overlay -->
+  <div id="loading-overlay" class="loading-overlay" style="display: none;">
+    <div class="loading-spinner">
+      <svg viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+      </svg>
+      <span>Cargando...</span>
+    </div>
+  </div>
+
+  <!-- Success Message -->
+  <div id="success-message" class="message-toast success" style="display: none;">
+    <span class="message-icon">✅</span>
+    <span class="message-text"></span>
+  </div>
+
+  <!-- Error Message -->
+  <div id="error-message" class="message-toast error" style="display: none;">
+    <span class="message-icon">❌</span>
+    <span class="message-text"></span>
+  </div>
 
   <script src="./js/script.js"></script>
 </body>
